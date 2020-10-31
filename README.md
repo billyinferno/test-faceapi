@@ -9,7 +9,7 @@ To setup the images, please edit variable "labels" in "loadImages" function.<br 
 ```
 Ensure to put all models from [https://github.com/justadudewhohacks/face-api.js/](faceapi.js) in the "public\models" folder.<br /><br />
 At the end your public folder structure should be looks like this:<br />
-..* public
+* public
 ...images
 ...models
 
