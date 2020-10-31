@@ -1,24 +1,27 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Testing [https://github.com/justadudewhohacks/face-api.js/](faceapi.js) implementation in react that also include the facedetection on livefeed video webcam.<br />
+To setup the images, please edit variable "labels" in "loadImages" function.<br />
+```javascript
+    const loadImages = async () => {
+      ...
+      const labels = ['Adi Martha', 'Seno', 'Wendy'];
+      ...
+    };
+```
 
 ## Available Scripts
 
 In the project directory, you can run:
 
-### `HTTPS`
-HTTPS=true SSL_CERT_FILE=.\ssl\server.crt SSL_KEY_FILE=.\ssl\server.key npm start
-
 ### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+This will run the NPM in HTTPS mode with certificate located on /ssl folder.<br />
+**Please ensure to already put your "server.crt" and "server.key" in the folder before run it.**<br />
+We need HTTPS as accessing webcam/video is needed to be done under secure-context, so it will be easier if we already setup the development process under secure-context (HTTPS).
+
+Open [https://localhost:3000](https://localhost:3000) to view it in the browser.
 
 The page will reload if you make edits.<br />
 You will also see any lint errors in the console.
-
-### `yarn test`
-
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
 ### `yarn build`
 
