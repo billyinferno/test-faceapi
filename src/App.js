@@ -15,7 +15,7 @@ function App() {
     const MODEL_URL = process.env.PUBLIC_URL + '/models';
 
     const loadImages = async () => {
-      setCurrentStatus("Load Images");
+      setCurrentStatus("🖼 Load Images");
       const labels = ['Adi Martha', 'Seno', 'Wendy'];
       const IMAGE_URL = process.env.PUBLIC_URL + '/images/';
       console.log("Loading Labeled Images");
@@ -33,7 +33,7 @@ function App() {
     };
 
     const loadFaceMatcher = async () => {
-      setCurrentStatus("Create Face Matcher");
+      setCurrentStatus("🎭 Create Face Matcher");
       const labelFaceDescriptors = await loadImages();
       const faceMatcher = new faceapi.FaceMatcher(labelFaceDescriptors, 0.6);
       setFaceMatcher(faceMatcher);
@@ -63,11 +63,13 @@ function App() {
     // start the video once the initialized is already set into true
     if(initialized) {
       console.log("Start video");
+      setCurrentStatus("📹 Ready");
       navigator.mediaDevices.getUserMedia({ audio: false, video: { width: videoWidth, height: videoHeight } }).then(function(stream) {
         videoRef.current.srcObject = stream;
       }).catch(function (err) {
         console.error("startVideo error: " + err);
-      })
+        setCurrentStatus("🛑 Error: " + err.message);
+      });
     }
   }, [initialized]);
 
@@ -110,7 +112,7 @@ function App() {
     <div className="App">
       <div className="display-flex justify-content-center">
         <span>
-          {initialized ? 'Ready' : `${currentStatus}`}
+          {`${currentStatus}`}
         </span>
       </div>
       <video
